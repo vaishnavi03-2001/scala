@@ -28,7 +28,7 @@ object driver extends App {
   val df = spark.read
     .format("com.databricks.spark.csv")
     .schema(mydf) // enforce a schema
-    .option("delimiter", "\t").option("header", "true").option("inferSchema", "false").load(path)
+    .option("delimiter", "\t").option("header", "true").option("inferSchema", "false").load("/Users/JO20382899/Downloads/csv/insight_data/products.csv")
 
   // Register the DataFrame as a global temporary view
   df.createGlobalTempView("products")
@@ -110,7 +110,7 @@ object driver extends App {
     .format("com.databricks.spark.csv")
     .schema(mdf)
     .option("delimiter", ",")
-    .option("header", "true"). option("multiline", "true").load("/Users/JO20382899/Desktop/supplier.csv")
+    .option("header", "true"). option("multiline", "true").load("/Users/JO20382899/Downloads/csv/insight_data/supplier.csv")
   vdf.createGlobalTempView("supplier")
   vdf.show()
 
@@ -125,7 +125,7 @@ object driver extends App {
     .format("com.databricks.spark.csv")
     .schema(mvdf) // enforce a schema
     .option("delimiter", ",")
-  .option("header", "true").option("multiline", "true").load("/Users/JO20382899/Documents/csv/Scaladata/products_suppliers.csv")
+  .option("header", "true").option("multiline", "true").load("/Users/JO20382899/Downloads/csv/insight_data/products_supplier.csv")
   cvdf.createGlobalTempView("products_suppliers")
   cvdf.show()
 
